@@ -1,0 +1,31 @@
+{% extends 'bootstrap.html' %}
+
+{% block content%}
+<table class="table table-hover" method =  'POST'enctype = "multipart/form-data">
+<label>Upload file</label>
+<input type="file" name="passport">
+<tr>
+    <th>S/N</th>
+    <th>FIRSTNAME</th>
+    <th>LASTNAME</th>
+    <th>EMAIL</th>
+    <th>password</th>
+    <td>Details</td>
+</tr>
+
+{% for m in members: %}
+<tr>
+    <!-- #we use loop.index instead of i -->
+    <td>{{ loop.index }}</td>
+    <td> <img src= "{{url_for('download_file' , filename='bmw.png')}}" width='100'></td>
+  
+    <td>{{ m.firstname }}</td>
+    <td>{{ m.lastname}}</td>
+    <td>{{ m.email }}</td>
+    <td>{{ m.password}}</td>
+    <td><a href="{{url_for('userdetails',userid=m.profile_id)}}">View details</a></td>
+   
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

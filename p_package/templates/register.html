@@ -1,0 +1,17 @@
+{% extends 'bootstrap.html' %}
+
+
+{% block content %}
+<form action="{{ url_for('register') }}" method="POST">
+    {{ myform.username.label }}
+    {{ myform.username(class_='form control')}}
+
+
+    {{ myform.password.label }}
+    {{ myform.password(class_='form control')}}
+
+    {{ myform.csrf_token }}
+    {{ myform.register}}
+</form>
+{% endblock %}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+</head>
+<body>
+        <form action="#" method="POST"> 
+                <div class="form-group">
+                    <label>Choose an item</label>
+                    <select name="product" onchange=getamount(this.value) class="form-contol" required>
+                        <option value="" selected = 'selected'>Please make a paymet</option>
+            
+                        {% for item in items: %}
+                        <option value=" {{ item.item_id }}" >{{ item.item_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label>Amount</label>
+                    <span id="amt"></span>
+                </div>
+            
+                {{ form.custname.label }}
+                {{ form.custname(class_='form control') }}
+            
+                {{ form.email.label }}
+                {{ form.email(class_='form control')}}
+            
+                {{ form.phone.label }}
+                {{ form.phone(class_='form control')}}
+            
+                {{form.csrf_token}}
+                {{form.submit(class_='btn btn-danger')}}
+            
+            
+            
+            
+            </form>
+<script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+       
+<script>
+function getamount(id){
+    alert(id)
+    $.ajax({
+        url:"/loadamt",
+        data:"itemid=" +id,
+        type:"POST",
+        dataType:'text',
+        success:function(msg){
+            $('#amt').html(msg)
+        },
+        error:function(err){
+            console.log(err)
+        },
+        beforeSend:function(){
+            $('#amt').html("Please input")
+        }
+    })
+}
+        
+</script>
+            
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+{% extends 'bootstrap.html' %}
+
+{% block content%}
+<form action="" id="myform">
+    <label>Username</label>
+    <input type="text">
+
+    <label>Password</label>
+    <input type="password">
+    <p></p>
+    <button class="btn btn-warning" id="sub" type="button">Send now</button>
+
+</form>
+
+{% endblock%}
+
+{% block scriptss%}
+{{ super() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#sub').click(function(){
+            data = $('#myform').serialize()
+            // alert('i will also submit')
+            $.ajax({
+                type:"POST",
+                data:data,
+                url: "{{ url_for('submitcon')}}",
+                success:function(msg){
+                    $('p').html(msg)
+                },
+                error:function(er){
+                    console.log(er)
+                }
+            })
+        })
+    })
+
+        
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <h3>WELCOME  <!--{% with message =get_flashed_messages() %}</h3>  -->
+    <!-- {{ message [0] }}
+    {% endwith %} -->
+    {{ session['username']}}
+
+    <!-- <button  type="submit">LOGOUT</button>
+    <a href="/logout" class="nav-link">Logout</a> -->
+    <form action="/logout">
+        <input type="submit" value="Logout" />
+    </form>
+    
+</body>
+</html>

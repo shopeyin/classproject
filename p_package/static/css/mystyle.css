@@ -1,0 +1,270 @@
+		
+		@font-face{
+			font-family: fonty;
+			src:url('../css/fonts/lora/lora-bold.ttf');
+		}
+		
+
+		body{
+			background-color: #F8F8FF;
+		}
+
+
+		.navbar-brand{
+			font-size: 20px;
+			 font-family: fonty, corbel, arial, san-serif;
+			 
+			 
+		}
+
+		.row_header{
+			background-color: #C3E4ED;
+		}
+		
+
+		.navbar-nav{
+			width: 80%;
+			display: flex;
+			justify-content: flex-end
+		}
+		#navbarNav{
+			justify-content: center;
+			margin-top: 5px;
+			
+		}
+
+		#navbarNav li{
+			min-height: 50px;
+		}
+	
+
+		a{
+			color: black;
+		}
+
+		 #navbarNav a:hover {
+		  border-bottom: 3px solid black;
+
+		}
+
+		#navbarNav a.active {	
+		  border-bottom: 3px solid red;
+		 
+		}
+		#mycarousel{
+			margin:0px;
+			padding: 0px;
+			background-color: black;
+			height: 620px
+
+		}
+
+		
+		
+		.no-gutters{
+			margin: 0px;
+			padding: 0px;
+		}
+			
+
+		#sm{
+			display:inline-grid; 
+			position: fixed; 
+			top: 350px;
+			 z-index: 2;
+			 padding: 5px;
+			 
+		}
+
+		#formh{
+			display: none;
+			position: fixed;
+			bottom: 50px;
+			 right: 10px;
+			 z-index: 8;
+			 color: white; 
+			 background-color: rgba(0,0,0,0.8);
+		}
+
+		#showform{
+			z-index: 6;
+			display: block;
+			display:inline-grid;
+			position: fixed;
+			bottom: 0px;
+			right: 10px;  
+			
+		}
+
+		.btnwidth{
+			width: 100%
+		}
+
+		.align{
+			text-align: left;
+			margin: 5px;
+		}
+		.align i{
+			padding-right: 10px;
+		}
+
+		h3 {
+			border: 1px solid;
+			width: 100%;
+			text-align: center;
+			color: white;
+			padding-top: 200px;
+			height: 100%;
+			
+			background-color: rgba(0,0,0, 0.6);
+			
+		}
+
+		#bg-image1{
+			background-image: url(../image/au.jpg);
+			height: 400px;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+		}
+
+		#bg-image2{
+			background-image: url(../image/ford.jpg);
+			height: 400px;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+		}
+
+		#bg-image3{
+			background-image: url(../images/moto7.jpg);
+			height: 400px;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+		}
+
+		
+
+		#quick{
+			background-color:  #C3E4ED;
+			justify-content: space-around;
+		}
+
+		#search{
+			
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-size: 30px;
+		}
+		#advantages0{
+			display: flex;
+			justify-content: space-around;
+			 background-color:#C1CDCD;"
+		}
+		#advantages{
+			display: flex;
+			 align-items: flex-end;
+			 justify-content: space-around;
+			min-height: 150px;
+		}
+		#largest{
+			min-height: 200px;
+			display: flex;
+			 align-items: flex-end; 
+			 justify-content: space-around;
+			padding: 0px;
+		}
+
+		#services{
+			display: flex;
+			justify-content:space-between;
+			 background-color:  #C3E4ED;
+		}
+		#services0{
+			display: flex;
+			flex-wrap: wrap;
+			 justify-content: center; 
+			 padding:5px;
+			}
+		#auto{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		h4{
+			text-align: center;
+		}
+
+		.icon{
+			font-size: 70px; 
+			display: flex;
+			justify-content:center; 
+		}
+		.icon2{
+			font-size: 40px;
+		}
+		.icon3{
+			font-size: 20px;
+		}
+
+
+		.para{
+			text-align: center;
+		}
+
+		a{
+			color: black;
+		}
+
+		#choice{
+			
+			justify-content: center; 
+			background-color: white; 
+			position: sticky;top: 0px;
+			z-index: 1;
+		}
+
+			/* login page style*/
+		.rowlog{
+		display: flex;
+		justify-content: space-around;
+		padding-top: 60px;
+		}
+
+		.rowsign{
+		display: flex;
+		justify-content: space-around;
+		}
+
+
+
+
+
+
+
+		@media (min-width: 320px) and (max-width: 480px) {
+		  			
+		  			#logo{
+		  				display: none;
+		  			}
+
+		  			#showform{
+		  				display: none;
+		  			}
+
+		 		}
+		  
+		@media (min-width: 481px) and (max-width: 767px) {
+				
+		  			#logo{
+		  				display: none;
+		  			}
+		  			
+					
+					
+		}
+				

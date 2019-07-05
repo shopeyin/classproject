@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('profiler')}}" method="POST" enctype = "multipart/form-data">
+                <div>{{ form.passport.errors }}</div>
+                {{ form.passport }}
+        <div>
+                {{ form.firstname.label }}
+                {{ form.firstname (class_='form-control')}}
+        </div>
+                
+        <div>
+                {{ form.lastname.label }}
+                {{ form.lastname (class_='form-control')}}
+        </div>
+        <div>
+                {{ form.email.label }}
+                {{ form.email(class_='form-control') }}
+        </div>
+        <div>
+                {{form.password.label}}
+                {{form.password(class_='form-control')}}
+        </div>
+        
+        {% for s in allskills: %}
+        
+        <input type="checkbox" name="skills" value="{{ s.id }}">
+        <label>{{s.skills_name}}</label>
+
+
+         {% endfor %}
+        <div>
+                {{form.csrf_token}}
+                {{form.submit()}}
+        </div>
+    </form>
+    
+</body>
+</html>
+

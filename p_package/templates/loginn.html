@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'bootstrap.html' %}
+    {% block content%}
+    <h1>Please Login heree</h1>
+    <form action="{{url_for('loginn')}}" method="POST">
+        <div class="form-group">
+            
+             {% with message = get_flashed_messages() %}
+                {% if message: %}
+                    {%for i  in message: %}
+                    <div class="alert alert-danger">{{i}}</div>
+                    
+                    {% endfor %}
+                 {% endif%}
+            {% endwith %}
+            {% if form.username.errors %}
+            <div class="alert alert-danger">
+                {{ form.username.errors[0] }}
+            </div>
+            {% endif %}
+            {{ form.username.label }}
+            {{ form.username(class_='form-control') }}       
+                                                                        
+        
+
+        <div class="form-group">
+            {% if form.password.errors %}
+            <div class="alert alert-danger">
+                {{ form.password.errors [0]}}
+            </div>
+            {% endif %}
+            {{ form.password.label }}
+            {{form.password(class_='form-control')}}  
+
+                <!-- {% if form.password.errors %}
+                     <span style="color:red">{{ form.password.errors[0] }}</span>
+                {% endif %} -->
+                                                                        
+        </div>
+        <div class="form-group">
+            {{form.csrf_token}}
+             {{form.submit}}
+
+             <!-- <button id="" type="submit">  Button</button> -->
+        </div>
+
+
+    </form>
+    {% endblock %}
+
+    {% block scriptss%}
+    {{ super() }}
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <div id="paystackEmbedContainer"></div>
+    
+    <script>
+      PaystackPop.setup({
+       key: 'pk_test_683fb29673f07d85f54bb18ed6e5a0892f535a08',
+       email: 'customer@email.com',
+       amount: 10000,
+       container: 'paystackEmbedContainer',
+       callback: function(response){
+            alert('successfully subscribed. transaction ref is ' + response.reference);
+        },
+      });
+    </script>
+{% endblock %}
+</body>
+</html>

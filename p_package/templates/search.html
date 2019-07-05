@@ -1,0 +1,45 @@
+{% extends 'bootstrap.html' %}
+
+{% block content%}
+<form action="" id="myform">
+    <label>Username</label>
+    <input type="text" name="use" id="user">
+
+    
+    
+    <button class="btn btn-warning" id="but" type="button">Send now</button>
+    <p> </p>
+</form>
+
+{% endblock%}
+
+{% block scriptss%}
+{{ super() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        mydata = $('#user').val()
+       $('#but').click(function(){
+          mydata=$('#myform').serialize()
+          $.ajax({
+              type:'POST',
+              dataType: 'json',
+              url:"{{ url_for('jsonsub')}}",
+              data: mydata,
+              success:function(msg){
+                 console.log(msg) 
+                 t = msg[0] + ' '+msg[1]
+                $('p').html(t)
+                alert(t)
+              },
+
+              error:function(er){
+                    console.log(er)
+                }
+              
+          })  
+       }) 
+    })
+
+        
+</script>
+{% endblock %}

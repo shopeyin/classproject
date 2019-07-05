@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('formsubmit')}}" method="POST">
+        <div class="form-group">
+                {{ formi.name.label }}
+                {{ formi.name(class_='form-control',placeholder='input username') }}  
+                    {% if formi.name.errors %}
+                         <span style="color:red">{{ formi.name.errors[0] }}</span>
+                    {% endif %}
+                                                                            
+        </div>
+        <div class="form-group">
+                {{ formi.email.label }}
+                {{ formi.email }}
+                {% if formi.email.errors%}
+                 <span style="color:red">{{ formi.email.errors[0] }}</span>
+                 {% endif %}
+        </div>
+            <div class="form-group">
+                {{ formi.message.label }}
+                {{ formi.message}}
+
+                {{formi.csrf_token}}
+                {{formi.submit(onclick='validate()')}}
+            </div>      
+    </form>
+   <!-- <script type="text/javascript">
+        function validate(){
+            var x = document.getElementById('form').value;
+            if(x == ''){
+                alert('input username')
+            }
+        }
+   </script>  -->
+</body>
+</html>
